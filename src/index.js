@@ -3,11 +3,12 @@ import ReactDOM from 'react-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import App from './components/App';
 import * as serviceWorker from './serviceWorker';
+import { StateProvider } from './contexts';
 
 ReactDOM.render(
-  <React.StrictMode>
+  <StateProvider>
     <App />
-  </React.StrictMode>,
+  </StateProvider>,
   document.getElementById('root')
 );
 

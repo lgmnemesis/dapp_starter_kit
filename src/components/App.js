@@ -1,14 +1,22 @@
-import React, { Component } from 'react';
+import React, { useContext } from 'react';
+import { StateContext } from '../contexts';
 import './App.css';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <p>Start here</p>
-      </div>
-    );
+function App() {
+
+  const [state, dispatch] = useContext(StateContext);
+  const buttonText = state.some_state ? 'on' : 'off';
+
+  const handleButtonClick = () => {
+    dispatch({type: 'SOME_CASE'});
   }
+
+  return (
+    <div className="App">
+      <p>{state.some_state}</p>
+      <button onClick={handleButtonClick}>{buttonText}</button>
+    </div>
+  );
 }
 
 export default App;
